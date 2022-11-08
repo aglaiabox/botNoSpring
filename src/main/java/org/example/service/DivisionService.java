@@ -1,8 +1,11 @@
 package org.example.service;
 
+import org.example.database.Database;
+
 public class DivisionService extends TaskService {
 
-    public DivisionService(){
+    public DivisionService(Database database){
+        super(database);
 
     }
 
@@ -11,8 +14,8 @@ public class DivisionService extends TaskService {
         int intFirst = (int) (Math.random() * (9 - 3)) +3;
         int intSecond = (int) (Math.random() * (9 - 3)) +3;
         int res = intFirst*intSecond;
-        super.task = new Task(chatId);
-        super.task.task = res+" / "+intSecond;
-        super.task.correctAnswer = Integer.toString(intSecond);
-    }
+        String taskQuest = res+" / "+intSecond;
+        String correctAnswer = Integer.toString(intFirst);
+        new Task(taskQuest, correctAnswer, chatId,database);
+        }
 }

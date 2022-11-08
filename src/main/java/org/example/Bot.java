@@ -1,10 +1,10 @@
 package org.example;
 
-import org.example.commands.database.Database;
+import org.example.database.Database;
 import org.example.commands.operation.CommandDivision;
 import org.example.commands.operation.CommandMultiply;
 import org.example.commands.menu.CommandHello;
-import org.example.service.TaskService;
+import org.example.service.Task;
 import org.telegram.telegrambots.extensions.bots.commandbot.TelegramLongPollingCommandBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
@@ -51,10 +51,10 @@ public class Bot extends TelegramLongPollingCommandBot {
 //                }
 //            }
 //        });
-        register(new CommandHello("hello", "Начинаем решать примеры на умножение"));
+        register(new CommandHello("hello", "Начинаем решать примеры на умножение", database));
 
-        register(new CommandMultiply("multiply", "Задания на умножение"));
-        register(new CommandDivision("division", "Задания на деление"));
+        register(new CommandMultiply("multiply", "Задания на умножение", database));
+        register(new CommandDivision("division", "Задания на деление", database));
 
 
     }
@@ -74,15 +74,32 @@ public class Bot extends TelegramLongPollingCommandBot {
         Long msgChatId = msg.getChatId();
         String userName = getBotUsername();
         SendMessage answer = new SendMessage();
-        String text = "We have got your message: \n\n\""+ msg.getText()+"\" \n and we are thinking about it.";
-        if (msg.getFrom().getId()==Long.parseLong("5654062987") ) {
-            text = text+"\nVeronica I LOVE U";
-        };
-        if (msg.getFrom().getId()==Long.parseLong("452028459") ) {
-            text = text+"\nAglaia, do U test me again?";
-        };
 
-//                getFirstName().equalsIgnoreCase("Ника")) text = text+"\nVeronica I LOVE U";
+        String text = "";
+        if (database.mapa.containsKey(msgChatId)){
+            Task task = database.mapa.get(msgChatId);
+            Boolean answerIsRight = msg.getText().equalsIgnoreCase(task.getCorrectAnswer());
+            if (answerIsRight) {
+                text = "Great answer! You are rignt";
+                database.mapa.remove(msgChatId);
+            } else {
+                text = "Try again";
+            }
+
+        } else {
+            text = "You don't have an active task. PLease tell me /hello for getting one";
+            if (msg.getFrom().getId()==Long.parseLong("5654062987") ) {
+                text = "Veronica, hi! "+text+"\nPost Scriptum: I LOVE U";
+            };
+//        if (msg.getFrom().getId()==Long.parseLong("452028459") ) {
+//            text = text+"\nAglaia, do U test me again?";
+//        };
+        }
+
+
+
+
+
         answer.setText(text);
         answer.setChatId(msgChatId.toString());
         System.out.println("Answer is creating right now");

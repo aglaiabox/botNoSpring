@@ -1,12 +1,13 @@
 package org.example.commands.operation;
 
+import org.example.database.Database;
 import org.example.service.MultiplyService;
 
 public class CommandMultiply extends OperationCommand {
 
-        public CommandMultiply(String identifier, String description) {
+        public CommandMultiply(String identifier, String description, Database database) {
                 super(identifier, description);
-                super.taskService = new MultiplyService();
+                super.taskService = new MultiplyService(database);
 
         }
 

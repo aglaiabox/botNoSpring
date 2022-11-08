@@ -1,5 +1,6 @@
 package org.example.commands.menu;
 
+import org.example.database.Database;
 import org.example.service.TaskService;
 import org.telegram.telegrambots.extensions.bots.commandbot.commands.IBotCommand;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -12,11 +13,15 @@ public abstract class OperationCommandMenu implements IBotCommand {
     private String identifier;
     private String description;
     protected String textToSend;
+    boolean keepActiveTask;
+    Database database;
 
-    OperationCommandMenu(String identifier, String description) {
+    OperationCommandMenu(String identifier, String description, Database database, boolean keepActiveTask) {
         super();
         this.description = description;
         this.identifier = identifier;
+        this.database = database;
+        this.keepActiveTask = keepActiveTask;
     }
 
     @Override
@@ -35,6 +40,10 @@ public abstract class OperationCommandMenu implements IBotCommand {
         answer.setText(textToSend);
         answer.setChatId(message.getChatId());
         System.out.println("point was chosen");
+
+        if (!keepActiveTask){
+            database.mapa.remove(message.getChatId());
+        }
 
         try {
             absSender.execute(answer);
