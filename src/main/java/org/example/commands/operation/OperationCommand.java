@@ -38,6 +38,7 @@ public abstract class OperationCommand implements IBotCommand {
         answer.setChatId(message.getChatId());
         System.out.println("task was send");
 
+
         try {
             absSender.execute(answer);
         } catch (TelegramApiException e) {

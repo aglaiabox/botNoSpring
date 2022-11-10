@@ -16,6 +16,6 @@ public class DivisionService extends TaskService {
         int res = intFirst*intSecond;
         String taskQuest = res+" / "+intSecond;
         String correctAnswer = Integer.toString(intFirst);
-        new Task(taskQuest, correctAnswer, chatId,database);
+        new Task(taskQuest, correctAnswer, chatId, database);
         }
 }

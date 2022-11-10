@@ -80,7 +80,9 @@ public class Bot extends TelegramLongPollingCommandBot {
             Task task = database.mapa.get(msgChatId);
             Boolean answerIsRight = msg.getText().equalsIgnoreCase(task.getCorrectAnswer());
             if (answerIsRight) {
-                text = "Great answer! You are rignt";
+                text = "Great answer! You are right!\n What do you want next: \n" +
+                        "/multiply\n/division";
+
                 database.mapa.remove(msgChatId);
             } else {
                 text = "Try again";
@@ -105,6 +107,7 @@ public class Bot extends TelegramLongPollingCommandBot {
         System.out.println("Answer is creating right now");
         try {
             execute(answer);
+
         } catch (TelegramApiException e) {
             //логируем сбой Telegram Bot API, используя userName
             System.out.println("somthing wrong: " + e.getMessage());
