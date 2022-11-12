@@ -1,11 +1,6 @@
-package org.example.commands.menu;
+package org.example.service.commands.menu;
 
 import org.example.database.Database;
-import org.example.service.MultiplyService;
-import org.telegram.telegrambots.extensions.bots.commandbot.commands.IBotCommand;
-import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
-import org.telegram.telegrambots.meta.api.objects.Message;
-import org.telegram.telegrambots.meta.bots.AbsSender;
 
 public class CommandHello extends OperationCommandMenu {
 

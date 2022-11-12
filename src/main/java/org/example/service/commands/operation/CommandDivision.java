@@ -1,4 +1,4 @@
-package org.example.commands.operation;
+package org.example.service.commands.operation;
 
 import org.example.database.Database;
 import org.example.service.DivisionService;

@@ -1,27 +1,24 @@
-package org.example.commands.menu;
+package org.example.service.commands.operation;
 
-import org.example.database.Database;
+import org.example.service.MultiplyService;
 import org.example.service.TaskService;
 import org.telegram.telegrambots.extensions.bots.commandbot.commands.IBotCommand;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
+import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.bots.AbsSender;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
-public abstract class OperationCommandMenu implements IBotCommand {
+public abstract class OperationCommand implements IBotCommand {
 
     private String identifier;
     private String description;
-    protected String textToSend;
-    boolean keepActiveTask;
-    Database database;
+    protected TaskService taskService;
 
-    OperationCommandMenu(String identifier, String description, Database database, boolean keepActiveTask) {
+    OperationCommand (String identifier, String description) {
         super();
         this.description = description;
         this.identifier = identifier;
-        this.database = database;
-        this.keepActiveTask = keepActiveTask;
     }
 
     @Override
@@ -37,13 +34,10 @@ public abstract class OperationCommandMenu implements IBotCommand {
     @Override
     public void processMessage(AbsSender absSender, Message message, String[] strings) {
         SendMessage answer = new SendMessage();
-        answer.setText(textToSend);
+        answer.setText(taskService.getTask(message.getChatId()));
         answer.setChatId(message.getChatId());
-        System.out.println("point was chosen");
+        System.out.println("task was send");
 
-        if (!keepActiveTask){
-            database.mapa.remove(message.getChatId());
-        }
 
         try {
             absSender.execute(answer);
@@ -51,6 +45,8 @@ public abstract class OperationCommandMenu implements IBotCommand {
             System.out.println("Exception: "+e.getMessage());
             //логируем сбой Telegram Bot API, используя commandName и userName
         }
+
+
 
 
     }

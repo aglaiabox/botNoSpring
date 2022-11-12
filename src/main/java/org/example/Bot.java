@@ -1,10 +1,10 @@
 package org.example;
 
 import org.example.database.Database;
-import org.example.commands.operation.CommandDivision;
-import org.example.commands.operation.CommandMultiply;
-import org.example.commands.menu.CommandHello;
-import org.example.service.Task;
+import org.example.service.commands.operation.CommandDivision;
+import org.example.service.commands.operation.CommandMultiply;
+import org.example.service.commands.menu.CommandHello;
+import org.example.model.Task;
 import org.telegram.telegrambots.extensions.bots.commandbot.TelegramLongPollingCommandBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;

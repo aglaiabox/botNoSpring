@@ -1,6 +1,7 @@
 package org.example.service;
 
 import org.example.database.Database;
+import org.example.model.Task;
 
 public class MultiplyService extends TaskService {
 

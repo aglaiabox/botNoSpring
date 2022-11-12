@@ -10,6 +10,5 @@ public class TextTaskService extends TaskService{
 
     @Override
     void createNewTask(Long chatId) {
-
     }
 }

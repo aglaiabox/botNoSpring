@@ -1,9 +1,9 @@
-package org.example.service;
+package org.example.model;
 
 import org.example.database.Database;
 
 public class Task {
-    String task;
+    public String task;
     String correctAnswer;
     public Long chatId;
 

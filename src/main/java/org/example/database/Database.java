@@ -1,7 +1,7 @@
 package org.example.database;
 
-import org.example.service.Task;
-import org.example.service.TextTasks;
+import org.example.model.Task;
+import org.example.model.TextTasks;
 
 import java.util.ArrayList;
 import java.util.HashMap;
