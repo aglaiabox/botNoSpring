@@ -1,6 +1,11 @@
 package org.example.model;
 
 public class KangTask extends AbstractTask {
+    public static final String A = "/a";
+    public static final String B = "/b";
+    public static final String C = "/c";
+    public static final String D = "/d";
+    public static final String E = "/e";
     String a;
     String b;
     String c;
@@ -21,7 +26,7 @@ public class KangTask extends AbstractTask {
         index = counter;
 
 
-        super.problem = problem + System.lineSeparator()+ " /a  " + a + " /b  " + b + " /c  " + c + " /d  " + d + " /e  " + e;
+        super.problem = problem + System.lineSeparator()+ " " + A + " - " + a + "; " + B + " - " + b + "; " + C + " - " + c + "; " + D + " - " + d + "; " + E + " - " + e;
     }
 
     public Integer getIndex() {
@@ -31,5 +36,10 @@ public class KangTask extends AbstractTask {
     @Override
     public String toString() {
         return super.problem;
+    }
+
+    @Override
+    public String getCorrectAnswer() {
+        return super.getCorrectAnswer();
     }
 }

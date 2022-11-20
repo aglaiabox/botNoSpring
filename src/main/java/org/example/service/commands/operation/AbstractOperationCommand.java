@@ -12,16 +12,15 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 public abstract class AbstractOperationCommand implements IBotCommand {
 
+    public static final String NO_MORE_TASKS = "Unfortunately, all tasks was finished. Please try to come later";
     private String identifier;
     private String description;
     protected AbstractTaskService abstractTaskService;
-    Database database;
 
-    AbstractOperationCommand(String identifier, String description, Database database) {
+    AbstractOperationCommand(String identifier, String description) {
         super();
         this.description = description;
         this.identifier = identifier;
-        this.database = database;
     }
 
     @Override
@@ -37,12 +36,15 @@ public abstract class AbstractOperationCommand implements IBotCommand {
     @Override
     public void processMessage(AbsSender absSender, Message message, String[] strings) {
 
-        UserBot userBot = database.getUserFromDatabase(message.getChatId());
-        System.out.println(userBot.getChatId());
-
         SendMessage answer = new SendMessage();
         AbstractTask task = abstractTaskService.giveMeATask(message.getChatId());
-        answer.setText(task.getProblem());
+        if (task != null){
+            answer.setText(task.getProblem());
+        } else {
+            answer.setText(NO_MORE_TASKS);
+        }
+
+
         answer.setChatId(message.getChatId());
 
         try {

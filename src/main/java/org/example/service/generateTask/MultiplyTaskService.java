@@ -1,31 +1,26 @@
 package org.example.service.generateTask;
 
-import org.example.database.Database;
+import org.example.model.AbstractTask;
 import org.example.model.GeneratedTask;
 import org.example.model.TypeOfGeneratedTask;
 import org.example.model.UserBot;
 
 public class MultiplyTaskService extends AbstractTaskService {
 
-    public MultiplyTaskService(Database database) {
-        super(database);
-
-    }
-
     @Override
-    public GeneratedTask giveMeATask(Long chatId) {
+    public AbstractTask giveMeATask(Long chatId) {
         UserBot userBot = database.getUserFromDatabase(chatId);
-        GeneratedTask generatedTaskOfUser = userBot.getActualGeneratedTask();
+        AbstractTask actualTask = userBot.getActualTask();
 
-        if (generatedTaskOfUser!=null && generatedTaskOfUser.getTypeOfGeneratedTask().equals(TypeOfGeneratedTask.MULTIPLY)) {
-            return database.getUserFromDatabase(chatId).getActualGeneratedTask();
+        if (actualTask != null && actualTask.getClass().equals(GeneratedTask.class) && ((GeneratedTask) actualTask).getTypeOfGeneratedTask().equals(TypeOfGeneratedTask.MULTIPLY)) {
+            return database.getUserFromDatabase(chatId).getActualTask();
         } else {
             return createNewTask(chatId);
         }
     }
 
 
-     GeneratedTask createNewTask(Long chatId) {
+    GeneratedTask createNewTask(Long chatId) {
         int intFirst = (int) (Math.random() * (10 - 3)) + 3;
         int intSecond = (int) (Math.random() * (10 - 3)) + 3;
         int res = intFirst * intSecond;

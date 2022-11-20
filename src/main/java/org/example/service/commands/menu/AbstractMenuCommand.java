@@ -13,13 +13,11 @@ public abstract class AbstractMenuCommand implements IBotCommand {
     private final String description;
     protected String textToSend;
     boolean keepActiveTask;
-    Database database;
 
-    AbstractMenuCommand(String identifier, String description, Database database, boolean keepActiveTask) {
+    AbstractMenuCommand(String identifier, String description, boolean keepActiveTask) {
         super();
         this.description = description;
         this.identifier = identifier;
-        this.database = database;
         this.keepActiveTask = keepActiveTask;
     }
 
@@ -38,10 +36,6 @@ public abstract class AbstractMenuCommand implements IBotCommand {
         SendMessage answer = new SendMessage();
         answer.setText(textToSend);
         answer.setChatId(message.getChatId());
-
-        if (!keepActiveTask) {
-            database.getUserFromDatabase(message.getChatId()).setActualGeneratedTask(null);
-        }
 
         try {
             absSender.execute(answer);

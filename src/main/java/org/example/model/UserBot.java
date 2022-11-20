@@ -5,7 +5,8 @@ public class UserBot {
     String name;
     Long chatId;
     int IndexOfCurrentKangTask;
-    GeneratedTask actualGeneratedTask;
+    // должен хранить последний активный таск - любой
+    AbstractTask actualTask;
 
     public UserBot(Long chatId) {
         this.chatId = chatId;
@@ -44,11 +45,11 @@ public class UserBot {
         IndexOfCurrentKangTask = indexOfCurrentKangTask;
     }
 
-    public GeneratedTask getActualGeneratedTask() {
-        return actualGeneratedTask;
+    public AbstractTask getActualTask() {
+        return actualTask;
     }
 
-    public void setActualGeneratedTask(GeneratedTask actualGeneratedTask) {
-        this.actualGeneratedTask = actualGeneratedTask;
+    public void setActualTask(AbstractTask actualTask) {
+        this.actualTask = actualTask;
     }
 }

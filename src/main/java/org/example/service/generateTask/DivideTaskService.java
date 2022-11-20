@@ -1,6 +1,5 @@
 package org.example.service.generateTask;
 
-import org.example.database.Database;
 import org.example.model.AbstractTask;
 import org.example.model.GeneratedTask;
 import org.example.model.TypeOfGeneratedTask;
@@ -8,23 +7,24 @@ import org.example.model.UserBot;
 
 public class DivideTaskService extends AbstractTaskService {
 
-    public DivideTaskService(Database database) {
-        super(database);
+    public DivideTaskService() {
+        super();
     }
 
     @Override
-    public GeneratedTask giveMeATask(Long chatId) {
+    public AbstractTask giveMeATask(Long chatId) {
         UserBot userBot = database.getUserFromDatabase(chatId);
-        GeneratedTask generatedTaskOfUser = userBot.getActualGeneratedTask();
+        AbstractTask actualTask = userBot.getActualTask();
 
-        if (generatedTaskOfUser != null && generatedTaskOfUser.getTypeOfGeneratedTask().equals(TypeOfGeneratedTask.DIVIDE)) {
-            return database.getUserFromDatabase(chatId).getActualGeneratedTask();
+
+        if (actualTask != null && actualTask.getClass().equals(GeneratedTask.class) && ((GeneratedTask) actualTask).getTypeOfGeneratedTask().equals(TypeOfGeneratedTask.DIVIDE)) {
+            return database.getUserFromDatabase(chatId).getActualTask();
         } else {
-            return createNewTask(chatId);
+            return generateNewTask(chatId);
         }
     }
 
-    public GeneratedTask createNewTask(Long chatId) {
+    public GeneratedTask generateNewTask(Long chatId) {
         int intFirst = (int) (Math.random() * (9 - 3)) + 3;
         int intSecond = (int) (Math.random() * (9 - 3)) + 3;
         int res = intFirst * intSecond;

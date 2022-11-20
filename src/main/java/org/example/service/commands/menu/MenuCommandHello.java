@@ -11,8 +11,8 @@ public class MenuCommandHello extends AbstractMenuCommand {
             "если текстовую задачу из сборника Кенгуру, то команду " + Bot.KANG_TASK + " ." + System.lineSeparator() +
             "Хорошей тренировки!";
 
-    public MenuCommandHello(String identifier, String description, Database database) {
-        super(identifier, description, database, false);
+    public MenuCommandHello(String identifier, String description) {
+        super(identifier, description,false);
         super.textToSend = TEXT_TO_SEND_COM_HELLO;
     }
 }

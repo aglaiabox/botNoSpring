@@ -4,30 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bdec11e6-40a2-4882-8908-97d50ab763d7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/GeneratedTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/KangTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/TypeOfGeneratedTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/UserBot.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/commands/operation/OperationCommandDivide.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/commands/operation/OperationCommandKang.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/generateTask/AbstractTaskService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/generateTask/KangTaskService.java" afterDir="false" />
+    <list default="true" id="bdec11e6-40a2-4882-8908-97d50ab763d7" name="Changes" comment="Fixed: &#10;- [x] 2 use final vars&#10;- [x] 3 remove commented (//) code from src&#10;- [x] 5 code was well formatted&#10;- [x] 6 class memebers should be private&#10;- [x] 3 Use System.lineSeparator() instead of '\n' &#10; class names was well formatted&#10;- [x] 1 mapa - good names and encapsulated &#10;- [x] 3 Database should be implemented as singleton&#10;- [x] 1 It is only model class, remove database from it&#10;TextTasks extend Task, Task is only model class, remove database from it&#10;&#10;Also:&#10;Generated Tasks work well, Kang task creating but correct answer doesn't work well">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/ActiveTaskService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Bot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/database/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/database/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/AbstractTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/TextTasks.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/DivisionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/generateTask/DivideTaskService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/MultiplyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/generateTask/MultiplyTaskService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/TaskService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/TextTaskService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/commands/menu/CommandHello.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/commands/menu/MenuCommandHello.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/commands/menu/OperationCommandMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/commands/menu/AbstractMenuCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/commands/operation/CommandDivision.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/commands/operation/CommandMultiply.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/commands/operation/OperationCommandMultiply.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/commands/operation/OperationCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/commands/operation/AbstractOperationCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/KangTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/KangTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/UserBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/UserBot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/commands/menu/AbstractMenuCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/commands/menu/AbstractMenuCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/commands/menu/MenuCommandHello.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/commands/menu/MenuCommandHello.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/commands/operation/AbstractOperationCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/commands/operation/AbstractOperationCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/commands/operation/OperationCommandDivide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/commands/operation/OperationCommandDivide.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/commands/operation/OperationCommandKang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/commands/operation/OperationCommandKang.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/commands/operation/OperationCommandMultiply.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/commands/operation/OperationCommandMultiply.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/generateTask/AbstractTaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/generateTask/AbstractTaskService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/generateTask/DivideTaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/generateTask/DivideTaskService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/generateTask/KangTaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/generateTask/KangTaskService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/generateTask/MultiplyTaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/generateTask/MultiplyTaskService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,22 +45,28 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2H4aoSGfzTYDWCwZ9ZwvhYGVKmj" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "run.code.analysis.last.selected.profile": "pProject Default"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.example.service.commands.operation" />
+    </key>
+    <key name="IntroduceConstantDialog.RECENTS_KEY">
+      <recent name="org.example.model.KangTask" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.example.service.generateTask" />
@@ -74,7 +74,12 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="org.example.App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <envs>
+        <env name="BOT_NAME" value="asdfg001" />
+        <env name="BOT_TOKEN" value="5754138882:AAEpWoxDSDuLOooOodwj3y2J_QOgd2oRT-U" />
+        <env name="BOT_USERNAME" value="asdfg000bot" />
+      </envs>
       <option name="MAIN_CLASS_NAME" value="org.example.App" />
       <module name="TelegramBotNoSpring" />
       <extension name="coverage">
@@ -89,7 +94,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.App" />
+        <item itemvalue="Application.org.example.App" />
       </list>
     </recent_temporary>
   </component>
@@ -130,7 +135,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668240587552</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fixed: &#10;- [x] 2 use final vars&#10;- [x] 3 remove commented (//) code from src&#10;- [x] 5 code was well formatted&#10;- [x] 6 class memebers should be private&#10;- [x] 3 Use System.lineSeparator() instead of '\n' &#10; class names was well formatted&#10;- [x] 1 mapa - good names and encapsulated &#10;- [x] 3 Database should be implemented as singleton&#10;- [x] 1 It is only model class, remove database from it&#10;TextTasks extend Task, Task is only model class, remove database from it&#10;&#10;Also:&#10;Generated Tasks work well, Kang task creating but correct answer doesn't work well">
+      <created>1668933824863</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1668933824863</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -149,25 +161,16 @@
     <MESSAGE value="Database class done for keeping tasks&#10;Commands of operations send a task and get+check the answer&#10;Command hello give possibility to change a kind of task" />
     <MESSAGE value="Version for checking" />
     <MESSAGE value="Restructure folders to model+service" />
-    <option name="LAST_COMMIT_MESSAGE" value="Restructure folders to model+service" />
+    <MESSAGE value="Fixed: &#10;- [x] 2 use final vars&#10;- [x] 3 remove commented (//) code from src&#10;- [x] 5 code was well formatted&#10;- [x] 6 class memebers should be private&#10;- [x] 3 Use System.lineSeparator() instead of '\n' &#10; class names was well formatted&#10;- [x] 1 mapa - good names and encapsulated &#10;- [x] 3 Database should be implemented as singleton&#10;- [x] 1 It is only model class, remove database from it&#10;TextTasks extend Task, Task is only model class, remove database from it&#10;&#10;Also:&#10;Generated Tasks work well, Kang task creating but correct answer doesn't work well" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed: &#10;- [x] 2 use final vars&#10;- [x] 3 remove commented (//) code from src&#10;- [x] 5 code was well formatted&#10;- [x] 6 class memebers should be private&#10;- [x] 3 Use System.lineSeparator() instead of '\n' &#10; class names was well formatted&#10;- [x] 1 mapa - good names and encapsulated &#10;- [x] 3 Database should be implemented as singleton&#10;- [x] 1 It is only model class, remove database from it&#10;TextTasks extend Task, Task is only model class, remove database from it&#10;&#10;Also:&#10;Generated Tasks work well, Kang task creating but correct answer doesn't work well" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/service/generateTask/KangTaskService.java</url>
-          <line>13</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/database/Database.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/database/Database.java</url>
-          <line>107</line>
-          <option name="timeStamp" value="5" />
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/service/ActiveTaskService.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

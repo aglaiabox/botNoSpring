@@ -5,7 +5,6 @@ import org.example.model.KangTask;
 import org.example.model.UserBot;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 public class Database {
@@ -21,7 +20,6 @@ public class Database {
         this.kangTaskMapa = new HashMap<>();
         this.usersMapa = new HashMap<>();
         addKangTaskToKangTaskMapa();
-        System.out.println(kangTaskMapa.toString());
     }
 
     public static Database getInstance() {
@@ -50,15 +48,11 @@ public class Database {
     }
 
     public void addGeneratedTaskToUser(GeneratedTask generatedTask, long chatId) {
-        usersMapa.get(chatId).setActualGeneratedTask(generatedTask);
-    }
-
-    public GeneratedTask getGeneratedTaskForUser(long chatId) {
-        return usersMapa.get(chatId).getActualGeneratedTask();
+        usersMapa.get(chatId).setActualTask(generatedTask);
     }
 
     public boolean isUserHaveActualGeneratedTask(long chatId) {
-        if (usersMapa.get(chatId).getActualGeneratedTask() != null)
+        if (usersMapa.get(chatId).getActualTask() != null)
             return true;
         return false;
     }
