@@ -4,15 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bdec11e6-40a2-4882-8908-97d50ab763d7" name="Changes" comment="Database class done for keeping tasks&#10;Commands of operations send a task and get+check the answer&#10;Command hello give possibility to change a kind of task">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/TextTaskService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/TextTasks.java" afterDir="false" />
+    <list default="true" id="bdec11e6-40a2-4882-8908-97d50ab763d7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/GeneratedTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/KangTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/TypeOfGeneratedTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/UserBot.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/commands/operation/OperationCommandDivide.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/commands/operation/OperationCommandKang.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/generateTask/AbstractTaskService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/generateTask/KangTaskService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Bot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/commands/operation/OperationCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/commands/operation/OperationCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/database/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/database/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/DivisionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/DivisionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/AbstractTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/TextTasks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/DivisionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/generateTask/DivideTaskService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/MultiplyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/generateTask/MultiplyTaskService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/TaskService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/TextTaskService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/commands/menu/CommandHello.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/commands/menu/MenuCommandHello.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/commands/menu/OperationCommandMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/commands/menu/AbstractMenuCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/commands/operation/CommandDivision.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/commands/operation/CommandMultiply.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/commands/operation/OperationCommandMultiply.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/commands/operation/OperationCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/commands/operation/AbstractOperationCommand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +39,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -49,7 +65,11 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.example.service.commands.operation" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.example.service.generateTask" />
       <recent name="org.example.commands.menu" />
     </key>
   </component>
@@ -59,7 +79,7 @@
       <module name="TelegramBotNoSpring" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.service.MultiplyService" />
+          <option name="PATTERN" value="org.example.service.generateTask.MultiplyTaskService" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -69,7 +89,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.org.example.App" />
+        <item itemvalue="Application.App" />
       </list>
     </recent_temporary>
   </component>
@@ -96,7 +116,21 @@
       <option name="project" value="LOCAL" />
       <updated>1667901177880</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Version for checking">
+      <created>1668075751246</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1668075751248</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Restructure folders to model+service">
+      <created>1668240587552</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1668240587552</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -113,6 +147,29 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="project created" />
     <MESSAGE value="Database class done for keeping tasks&#10;Commands of operations send a task and get+check the answer&#10;Command hello give possibility to change a kind of task" />
-    <option name="LAST_COMMIT_MESSAGE" value="Database class done for keeping tasks&#10;Commands of operations send a task and get+check the answer&#10;Command hello give possibility to change a kind of task" />
+    <MESSAGE value="Version for checking" />
+    <MESSAGE value="Restructure folders to model+service" />
+    <option name="LAST_COMMIT_MESSAGE" value="Restructure folders to model+service" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/service/generateTask/KangTaskService.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/database/Database.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/database/Database.java</url>
+          <line>107</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

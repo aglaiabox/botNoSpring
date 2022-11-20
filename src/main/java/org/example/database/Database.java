@@ -1,37 +1,115 @@
 package org.example.database;
 
-import org.example.model.Task;
-import org.example.model.TextTasks;
+import org.example.model.GeneratedTask;
+import org.example.model.KangTask;
+import org.example.model.UserBot;
 
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 public class Database {
-    public static final Database DATABASE = new Database();
-    public Map <Long, Task> mapa;
-    public ArrayList <TextTasks> TextTastsList;
+    private static volatile Database database;
+    Map<Integer, KangTask> kangTaskMapa;
+    Map<Long, UserBot> usersMapa;
 
-    public Database() {
-        this.mapa = new HashMap<>();
+
+    private Database() {
+        if (database != null) {
+            throw new RuntimeException("Use getInstance() method to get the single instance of this class.");
+        }
+        this.kangTaskMapa = new HashMap<>();
+        this.usersMapa = new HashMap<>();
+        addKangTaskToKangTaskMapa();
+        System.out.println(kangTaskMapa.toString());
     }
 
-    public void addToMapa (Task task){
-        mapa.put(task.chatId, task);
+    public static Database getInstance() {
+        if (database == null) {
+            synchronized (Database.class) {
+                if (database == null) database = new Database();
+            }
+        }
+        return database;
+    }
+
+    public boolean isUserExist(long msgChatId) {
+        if (usersMapa.containsKey(msgChatId)) return true;
+        return false;
+    }
+
+    public void addNewUserToDatabasa(UserBot userBot) {
+        usersMapa.put(userBot.getChatId(), userBot);
+    }
+
+    public UserBot getUserFromDatabase(long chatId) {
+        if (!isUserExist(chatId)) {
+            addNewUserToDatabasa(new UserBot(chatId));
+        }
+        return usersMapa.get(chatId);
+    }
+
+    public void addGeneratedTaskToUser(GeneratedTask generatedTask, long chatId) {
+        usersMapa.get(chatId).setActualGeneratedTask(generatedTask);
+    }
+
+    public GeneratedTask getGeneratedTaskForUser(long chatId) {
+        return usersMapa.get(chatId).getActualGeneratedTask();
+    }
+
+    public boolean isUserHaveActualGeneratedTask(long chatId) {
+        if (usersMapa.get(chatId).getActualGeneratedTask() != null)
+            return true;
+        return false;
+    }
+
+    private Map<Integer, KangTask> getKangTaskMapa() {
+        return kangTaskMapa;
+    }
+
+    public KangTask getKangTaskByInd(int indexOfKangTask) {
+        if (!kangTaskMapa.containsKey(indexOfKangTask)) {
+            return null;
+        }
+        return kangTaskMapa.get(indexOfKangTask);
+    }
+
+    public void setKangTaskMapa(Map<Integer, KangTask> kangTaskMapa) {
+        this.kangTaskMapa = kangTaskMapa;
     }
 
 
-
-//    public Task getTaskByChatId(Long chatId){
-//        return mapa.get(chatId);
-//    }
-
-    private void addTextTastsToDataBase(){
-        String textTask = "Андрей купил в магазине 20 тетрадей, 2 альбома для рисования, несколько карандашей по 6 р. 20 коп. и несколько ластиков по 4 рубля. Ему сказали, что в кассу следует уплатить 55 рублей 65 копеек. Андрей попросил пересчитать стоимость покупки и ошибка была устранена. Как Андрей догадался, что она была допущена?\n\n" +
-                "К сожалению, у этой задачи нет простого ответа, который мог бы проверить робот. Поэтому если ты думаешь, что решил и хочешь посмотреть ответ, напиши слово answer";
-        String help = "Это задание на четность и нечетность, подумай в эту сторону";
-        String answer = "Количество и цена всех его покупок были четными, а результат - не четным.";
-        String correctAnswer = "answer";
+    public Map<Long, UserBot> getUsersMapa() {
+        return usersMapa;
     }
+
+    public void setUsersMapa(Map<Long, UserBot> usersMapa) {
+        this.usersMapa = usersMapa;
+    }
+
+    private void addKangTaskToKangTaskMapa() {
+
+        KangTask kangTask = new KangTask("У Маши 3 брата и 2 сестры. Сколько братьев и сестер у ее брата Миши?",
+                "3 брата и 2 сестры", "2 брата и 3 сестры",
+                "2 сестры и 2 брата", "3 брата и 3 сестры",
+                "невозможно определить", "b");
+        // B 74 77
+
+        KangTask kangTask2 = new KangTask("Сумма восьми чисел равна 1997. Число 997 — одно из них. Если его " +
+                "заменить на 799, то новая сумма будет равна", "2195", "1799", "1899", "1979", "1998",
+                "b");
+        // B 83 81
+
+        KangTask kangTask3 = new KangTask("У игрального кубика на всех парах противоположных граней сумма" +
+                " очков одна и та же. Найдите эту сумму", "6", "7", "8", "9", "10",
+                "b");
+        // B 44 59
+
+        kangTaskMapa.put(kangTask.getIndex(), kangTask);
+        kangTaskMapa.put(kangTask2.getIndex(), kangTask2);
+        kangTaskMapa.put(kangTask3.getIndex(), kangTask3);
+
+    }
+
 
 }

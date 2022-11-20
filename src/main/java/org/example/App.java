@@ -6,13 +6,11 @@ import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
 /**
  * Hello world!
- *
  */
 public class App {
 
 
-    public static void main( String[] args ) throws TelegramApiException
-    {
+    public static void main(String[] args) throws TelegramApiException {
         TelegramBotsApi botsApi = new TelegramBotsApi(DefaultBotSession.class);
 
         String botName = "asdfg001";
@@ -20,7 +18,7 @@ public class App {
         String botToken = "5754138882:AAEpWoxDSDuLOooOodwj3y2J_QOgd2oRT-U";
         botsApi.registerBot(new Bot(botName, botUsername, botToken));
 
-        System.out.println( "Bot have been created, my general ^^" );
+        System.out.println("Bot have been created, my general ^^");
     }
 
 
